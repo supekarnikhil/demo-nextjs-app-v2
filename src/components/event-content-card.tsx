@@ -1,15 +1,12 @@
-import Image from "next/image";
 import {
   Typography,
   Card,
   CardHeader,
   CardBody,
-  Avatar,
 } from "@material-tailwind/react";
 
 interface EventContentCardProps {
   title: string;
-  des: string;
   name: string;
   position: string;
   panel: string;
@@ -17,7 +14,6 @@ interface EventContentCardProps {
 }
 export function EventContentCard({
   title,
-  des,
   name,
   position,
   panel,
@@ -32,11 +28,11 @@ export function EventContentCard({
       <CardHeader
         floated={false}
         shadow={false}
-        className="h-[32rem] max-w-[28rem] shrink-0"
+        className="h-[10rem] max-w-[10rem] shrink-0"
       >
-        <Image
-          width={768}
-          height={768}
+        <img
+          width={300}
+          height={300}
           src={img}
           alt="testimonial image"
           className="h-full w-full object-cover"
@@ -46,19 +42,10 @@ export function EventContentCard({
         <Typography variant="h6" color="blue-gray" className="mb-4">
           {panel}
         </Typography>
-        <Typography variant="h2" color="blue-gray" className="mb-4 font-medium">
+        <Typography variant="h5" color="blue-gray" className="mb-4 font-medium">
           {title}
         </Typography>
-        <Typography className="mb-12 md:w-8/12 font-medium !text-gray-500">
-          {des}
-        </Typography>
         <div className="flex items-center gap-4">
-          <Avatar
-            variant="circular"
-            src="/logos/spotify-logo.png"
-            alt="spotify"
-            size="lg"
-          />
           <div>
             <Typography variant="h6" color="blue-gray" className="mb-0.5">
               {name}

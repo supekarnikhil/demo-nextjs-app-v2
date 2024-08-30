@@ -2,11 +2,11 @@
 import { Navbar, Footer, NavbarProps, VARIANT } from "@/components";
 
 // sections
-import Hero, { HeroProps } from "./hero";
-import SponsoredBy, { SponsoredByProps } from "./sponsored-by";
-import OurStats, { StatsProps } from "./our-stats";
-import EventContent, { EventContentProps } from "./event-content";
-import Faq, { FaqProps } from "./faq";
+import Hero, { HeroProps } from "../hero";
+import SponsoredBy, { SponsoredByProps } from "../sponsored-by";
+import OurStats, { StatsProps } from "../our-stats";
+import EventContent, { EventContentProps } from "../event-content";
+import Faq, { FaqProps } from "../faq";
 
 const getHeroProps = (props: any): HeroProps => {
   return {
@@ -109,9 +109,9 @@ const getSectionsComponent = ({ id, __component, ...rest }: any) => {
   }
 };
 
-export default async function Portfolio() {
-  const res = await fetch(
-    `${process.env.CMS_BASE_URL}/api/landing-pages?filters[slug]=home&populate=deep`,
+export default async function Portfolio({ params }: any) {
+    const res = await fetch(
+      `${process.env.CMS_BASE_URL}/api/landing-pages?filters[slug]=${params?.slug}&populate=deep`,
     {
       headers: {
         "Content-Type": "application/json",
